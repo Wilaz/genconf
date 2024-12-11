@@ -1,0 +1,21 @@
+{
+	"files.exclude": {
+		// Thing1 files
+		"file1": ${Thing1},
+		"file2": ${Thing1},
+		"file3": ${Thing1},
+
+		// Thing2 files
+		"giz.mo": 		 ${Thing2},
+		"things/gadget": ${Thing2},
+
+		// Thing3 files
+		"pi":	${Thing3},
+		"tau":	${Thing3},
+		"mu":	${Thing3},
+
+		// Other thing
+		".dohicky":		true,
+		"thingamabob":	false
+	}
+}
