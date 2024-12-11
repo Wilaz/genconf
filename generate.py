@@ -3,35 +3,33 @@ import toml
 import re
 from pathlib import Path
 
-PROGRAM_DIR = Path(__file__).parent
-CONFIG_DIR  = PROGRAM_DIR.parent / "config"
-KEYS_PATH   = PROGRAM_DIR / "keys.toml"
+PROGRAM_DIR     = Path(__file__).parent
+CONFIG_DIR      = PROGRAM_DIR        / "config"
+KEYS_PATH       = CONFIG_DIR         / "keys.toml"
+TEMPLATE_PATH   = CONFIG_DIR         / "settings.jstemp"
+OUT_PATH        = PROGRAM_DIR.parent / "settings.json"
 
 def replace_placeholders(key, value, data):
     return data.replace("${%s}" % key, str(value).lower())
 
 def main():
+    with open(TEMPLATE_PATH) as data:
+        template = data.read()
+
+        # Remove comments
+        template = re.sub(r'.*\/\/.*', '', template)
+
+        # Remove empty lines
+        template = '\n'.join([line for line in template.split('\n') if line.strip()])
+
     with open(KEYS_PATH) as data:
         settings = toml.load(data)
 
-    for file in TEMPLATE_DIR.walk():
-        infile  = PROGRAM_DIR   / "templates"
-        outfile = CONFIG_DIR    / "settings.json"
+    for key, value in settings.items():
+        template = replace_placeholders(key, value, template)
 
-        with open(infile) as data:
-            template = data.read()
-
-            # Remove comments
-            template = re.sub(r'.*\/\/.*', '', template)
-
-            # Remove empty lines
-            template = '\n'.join([line for line in template.split('\n') if line.strip()])
-
-        for key, value in settings.items():
-            template = replace_placeholders(key, value, template)
-
-        with open(outfile, 'w+') as file:
-            file.write(template)
+    with open(OUT_PATH, 'w+') as file:
+        file.write(template)
 
 if __name__ == '__main__':
     main()
