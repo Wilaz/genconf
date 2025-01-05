@@ -1,13 +1,20 @@
 # How to use
 
-## keys.toml
+## Config
 
-In here you store what you want shown
+### keys.toml
 
-## settings_template.jstemp
+In here you store what you want shown. Set your keys to `true` or `false`
 
-In here you store your settings.json template. To use templating for example on 'xyz', you would have ${xyz} in the jstemp then xyz = (true or false) in keys.
+### settings.jstemp
 
-## templates
+In here you store your settings.json template. For example, to use templating on `xyz`, you would have `${xyz}` in the jstemp then `xyz =` (`true` or `false`) in keys.
 
-Here some premade templates can be found
+## Templates
+
+The templates directory contains a few premade templates.
+
+## Todos
+
+- [ ] Replace keys.toml with an interactive cli
+- [ ] Add more example configs
