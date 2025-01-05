@@ -3,11 +3,11 @@ import toml
 import re
 from pathlib import Path
 
-PROGRAM_DIR     = Path(__file__).parent
-CONFIG_DIR      = PROGRAM_DIR        / "config"
-KEYS_PATH       = CONFIG_DIR         / "keys.toml"
-TEMPLATE_PATH   = CONFIG_DIR         / "settings.jstemp"
-OUT_PATH        = PROGRAM_DIR.parent / "settings.json"
+PROGRAM_DIR     = Path(__file__).parent.parent
+OUT_PATH        = PROGRAM_DIR   / "settings.json"
+CONFIG_DIR      = PROGRAM_DIR   / "config"
+KEYS_PATH       = CONFIG_DIR    / "keys.toml"
+TEMPLATE_PATH   = CONFIG_DIR    / "settings.jstemp"
 REGEX           = r'.*\/\/.*'
 
 def replace_placeholders(key, value, data):

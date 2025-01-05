@@ -1,7 +1,0 @@
-{
-	"files.exclude": {
-		"file1": ${thing1},
-		"file2": ${thing2},
-		"file3": ${thing3}
-	}
-}

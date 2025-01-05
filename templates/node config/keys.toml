@@ -1,0 +1,4 @@
+# Set to 'true' to hide
+node        = true
+linter      = true
+formatter   = false

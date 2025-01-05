@@ -1,0 +1,40 @@
+{
+	"files.exclude": {
+		// Nodejs files
+		"node_modules": 		${node},
+		"jspm_packages": 		${node},
+		".npm": 				${node},
+		"package-lock.json":	${node},
+
+		// Linter files
+		".prettierignore":		${linter},
+		".prettierrc":			${linter},
+		".prettierrc.json":		${linter},
+		".prettierrc.json5":	${linter},
+		".prettierrc.yml":		${linter},
+		".prettierrc.yaml":		${linter},
+		".prettierrc.toml":		${linter},
+		".prettierrc.js":		${linter},
+		".prettierrc.mjs":		${linter},
+		".prettierrc.cjs":		${linter},
+		"prettier.config.js":	${linter},
+		"prettier.config.mjs":	${linter},
+		"prettier.config.cjs":	${linter},
+
+
+		// Formatter files
+		".eslintignore":		${formatter},
+		".eslintcache":			${formatter},
+		"eslint.config.js":		${formatter}, // Config
+		"eslint.config.mjs":	${formatter},
+		"eslint.config.cjs":	${formatter},
+		"eslint.config.ts":		${formatter},
+		"eslint.config.mts":	${formatter},
+		"eslint.config.cts":	${formatter},
+		".eslintrc.js":			${formatter}, // Deprecated config
+		".eslintrc.cjs":		${formatter},
+		".eslintrc.yaml":		${formatter},
+		".eslintrc.yml":		${formatter},
+		".eslintrc.json":		${formatter}
+	}
+}
