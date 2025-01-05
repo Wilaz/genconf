@@ -8,6 +8,7 @@ CONFIG_DIR      = PROGRAM_DIR        / "config"
 KEYS_PATH       = CONFIG_DIR         / "keys.toml"
 TEMPLATE_PATH   = CONFIG_DIR         / "settings.jstemp"
 OUT_PATH        = PROGRAM_DIR.parent / "settings.json"
+REGEX           = r'.*\/\/.*'
 
 def replace_placeholders(key, value, data):
     return data.replace("${%s}" % key, str(value).lower())
@@ -17,7 +18,7 @@ def main():
         template = data.read()
 
         # Remove comments
-        template = re.sub(r'.*\/\/.*', '', template)
+        template = re.sub(REGEX, '', template)
 
         # Remove empty lines
         template = '\n'.join([line for line in template.split('\n') if line.strip()])
