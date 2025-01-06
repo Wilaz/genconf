@@ -41,12 +41,12 @@ def get_cache():
 def get_keys():
     with open(TEMPLATE_PATH) as data:
         template = data.read()
-        keys = set(re.findall(KEY_REGEX, template))
+        keys = set(map(KEY_EXTRACT, re.findall(KEY_REGEX, template)))
         return keys
 
 def get_choices(keys, cache):
     key_choices = []
-    for item in map(KEY_EXTRACT, keys):
+    for item in keys:
         selected = item in cache
         key_choices.append(Choice(item, checked=selected))
     return key_choices
