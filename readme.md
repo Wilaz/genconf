@@ -2,25 +2,13 @@
 
 ## Installation
 
-The preferred way of instaling genconf is via a git submodule; Running `git submodule add https://github.com/Wilaz/genconf .vscode/genconf` at the root of your project should work if you have a repo already initialized.
+The preferred way of instaling genconf is via a git submodule; Running `git submodule add https://github.com/Wilaz/genconf .vscode/genconf` at the root of your project should work if you have a git repo already initialized.
 
 ## Config
 
-Configs are stored in the `.vscode/config` directory in the form of two files: `keys.toml` and `settings.jstemp`
-
-### keys.toml
-
-In here you store what you want shown. Set your keys to `true` or `false`
-
-### settings.jstemp
-
-In here you store your settings.json template. For example, to use templating on `xyz`, you would have `${xyz}` in the jstemp then `xyz =` (`true` or `false`) in keys. Unlike json, comments are allowed via `// comment`.
-
-## Templates
-
-The templates directory contains a few premade templates.
+Genconf is configured by a singular settings.jstemp instide the `.vscode` folder. For example, to use templating on `xyz`, you would have `${xyz}` in the jstemp. Additionally, comments are allowed via `// comment`. The templates directory contains a few premade examples that better explain how it works.
 
 ## Todos
 
-- [ ] Replace keys.toml with an interactive cli
+- [x] Replace keys.toml with an interactive cli
 - [x] Add more example configs
