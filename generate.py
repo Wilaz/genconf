@@ -73,6 +73,8 @@ def main():
     if confirm("Is this ok?").ask():
         with open(OUT_PATH, 'w+') as file:
             file.write(template)
+        with open(CACHE_PATH, 'w+') as file:
+            file.write(keys)
     else:
         print("Aborted, nothing was written")
 
