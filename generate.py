@@ -41,7 +41,7 @@ def get_cache():
 def get_keys():
     with open(TEMPLATE_PATH) as data:
         template = data.read()
-        keys = set(map(KEY_EXTRACT, re.findall(KEY_REGEX, template)))
+        keys = sorted(set(map(KEY_EXTRACT, re.findall(KEY_REGEX, template))))
         return keys
 
 def get_choices(keys, cache):
@@ -74,7 +74,7 @@ def main():
         with open(OUT_PATH, 'w+') as file:
             file.write(template)
         with open(CACHE_PATH, 'w+') as file:
-            file.write(keys)
+            file.write("\n".join(selected))
     else:
         print("Aborted, nothing was written")
 
